@@ -1,0 +1,43 @@
+<%= form_for(@book) do |f| %>
+    <% if @book.errors.any? %>
+        <h2><%= pluralize(@book.errors.count, "errors") %> Han impedido que el libro se guarde</h2>
+        <ul>
+        <% @book.errors.full_messages.each do |messege| %>
+            <li><%= message %></li>
+        <% end %>
+        </ul>
+    <% end %>
+    
+  <div class= 'container pt-5'>
+    
+    <h2></h2>
+    <div class= "form-group">
+        <%= f.label :title, 'Ingrese el título' %>
+        <%= text_field :title, class: 'form-control' %>
+    </div>
+
+    <div class= "form-group">
+        <%= f.label :author, 'Ingrese el autor' %>
+        <%= text_field :author, class: 'form-control' %>
+    </div>
+
+    <div class= "form-group">
+        <%= f.label :status %>
+        <%= f.select :status, options_for_select(@statuses), {}, class: 'form-control' %>
+    </div>
+
+    <div class= "form-group">
+        <%= f.label :lended_at %>
+        <%= f.datetime_select :lended_at %>
+    </div>
+
+    <div class= "form-group">
+        <%= f.label :returned_at %>
+        <%= f.datetime_select :returned_at %>
+    </div>
+
+    <div class= "actions">
+        <%= f.submit %>
+    </div>
+  </div>
+<% end %>
