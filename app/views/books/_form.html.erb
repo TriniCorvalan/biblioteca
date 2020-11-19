@@ -2,7 +2,7 @@
     <% if @book.errors.any? %>
         <h2><%= pluralize(@book.errors.count, "errors") %> Han impedido que el libro se guarde</h2>
         <ul>
-        <% @book.errors.full_messages.each do |messege| %>
+        <% @book.errors.full_messages.each do |message| %>
             <li><%= message %></li>
         <% end %>
         </ul>
@@ -23,7 +23,7 @@
 
     <div class= "form-group">
         <%= f.label :status %>
-        <%= f.select :status, options_for_select(@statuses), {}, class: 'form-control' %>
+        <%= f.select :status, options_for_select(@statuses), {}, class: "form-control" %>
     </div>
 
     <div class= "form-group">
